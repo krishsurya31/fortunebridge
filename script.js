@@ -222,7 +222,8 @@
         '<label>Name<input name="name" required autocomplete="name" maxlength="80"></label>' +
         '<label>Phone<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91" maxlength="20"></label>' +
       '</div>' +
-      '<label>Email<input name="email" type="email" required autocomplete="email" maxlength="120"></label>' +
+      '<label>Email<input name="email" type="email" autocomplete="email" maxlength="120"></label>' +
+      '<p class="book-hint">Phone or email, at least one, so we can reach you.</p>' +
       '<label>What would you like to discuss?<select name="topic">' +
         TOPICS.map(t => '<option>' + t + '</option>').join('') +
       '</select></label>' +
@@ -248,9 +249,22 @@
   const status = dlg.querySelector('.book-status');
   const submitBtn = form.querySelector('[type=submit]');
   const msgField = form.elements.message;
+  const phoneEl = form.elements.phone, emailEl = form.elements.email;
+
+  // Either contact channel is enough, but we need one. Both fields carry the same custom
+  // validity so whichever the visitor reaches first shows the problem.
+  function checkContact() {
+    const phone = phoneEl.value.trim(), email = emailEl.value.trim();
+    const msg = (phone || email) ? '' : 'Please give a phone number or an email so we can reach you.';
+    phoneEl.setCustomValidity(msg); emailEl.setCustomValidity(msg);
+    if (phone && phone.replace(/\D/g, '').length < 8) phoneEl.setCustomValidity('Please enter a valid phone number.');
+  }
+  phoneEl.addEventListener('input', checkContact);
+  emailEl.addEventListener('input', checkContact);
 
   function open() {
     form.hidden = false; done.hidden = true; status.textContent = ''; form.classList.remove('touched');
+    checkContact();
     // On the calculator page, carry the visitor's result into the message.
     if (!msgField.value && window.fbCalcSummary) msgField.value = 'From the Wealth Calculator: ' + window.fbCalcSummary;
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
@@ -266,7 +280,7 @@
 
   const enc = encodeURIComponent;
   function mailtoHref(d) {
-    const body = 'Name: ' + d.name + '\nPhone: ' + (d.phone || '-') + '\nEmail: ' + d.email +
+    const body = 'Name: ' + d.name + '\nPhone: ' + (d.phone || '-') + '\nEmail: ' + (d.email || '-') +
       '\nTopic: ' + d.topic + '\n\n' + (d.message || '');
     return 'mailto:' + TO + '?subject=' + enc('Consultation request from ' + d.name) + '&body=' + enc(body);
   }
@@ -286,15 +300,21 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
     form.classList.add('touched');
-    if (!form.checkValidity()) { form.querySelector(':invalid').focus(); return; }
+    checkContact();
+    if (!form.checkValidity()) {
+      const inv = form.querySelector(':invalid');
+      status.textContent = inv.validationMessage || 'Please check the highlighted field.';
+      inv.focus(); return;
+    }
     const d = Object.fromEntries(new FormData(form));
     if (d._honey) { succeed(); return; }               // bot filled the hidden field
     submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; status.textContent = '';
     const payload = {
-      name: d.name, phone: d.phone || '', email: d.email, topic: d.topic, message: d.message || '',
+      name: d.name, phone: d.phone || '', email: d.email || '', topic: d.topic, message: d.message || '',
       _subject: 'Consultation request from ' + d.name,
-      _replyto: d.email, _template: 'table', _captcha: 'false'
+      _template: 'table', _captcha: 'false'
     };
+    if (d.email) payload._replyto = d.email;   // reply-to only makes sense when there is an address
     const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 12000);
     fetch(ENDPOINT, { method: 'POST', signal: ctrl.signal,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },

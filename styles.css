@@ -531,6 +531,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .book-sub { margin:6px 0 20px; font-size:15px; color:var(--ink-500); }
 .book-form label { display:block; margin-top:14px; font-size:13px; font-weight:600; color:var(--ink-700); }
 .book-form label .opt { font-weight:500; color:var(--ink-500); }
+.book-hint { margin:6px 0 0; font-size:12.5px; line-height:18px; color:var(--ink-500); }
 .book-form input:not([type=checkbox]), .book-form select, .book-form textarea {
   display:block; width:100%; margin-top:6px; padding:11px 13px; font:inherit; font-size:15px;
   color:var(--ink-900); background:var(--ivory-50); border:1px solid var(--line-200); border-radius:10px;
