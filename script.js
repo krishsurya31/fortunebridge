@@ -239,7 +239,7 @@
     '<div class="book-done" hidden>' +
       '<span class="book-tick"><svg class="ic"><use href="#i-check"/></svg></span>' +
       '<h2>Request sent</h2>' +
-      '<p>Thank you. Fortune Bridge will be in touch within one working day.</p>' +
+      '<p>Thank you. The Fortune Bridge team will contact you soon.</p>' +
       '<button type="button" class="btn btn-primary book-close2">Done</button>' +
     '</div>';
   document.body.appendChild(dlg);
