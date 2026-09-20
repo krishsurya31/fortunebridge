@@ -6,8 +6,9 @@ on 2026-09-20. No framework, no build step, no dependencies.
 ## Deployment (GitHub Pages, from 2026-09-20)
 
 - **Repo:** https://github.com/krishsurya31/fortunebridge (public; Pages requires it on a free plan)
-- **Live:** https://krishsurya31.github.io/fortunebridge/ until the domain is attached, then
-  **https://fortunebridge.co.in**
+- **Live:** **https://fortunebridge.co.in** (domain attached 2026-09-20; DNS at GoDaddy points
+  the apex at GitHub's four A records and `www` at `krishsurya31.github.io`). The github.io URL
+  now redirects here. The `CNAME` file in the repo root is what tells GitHub the domain; keep it.
 - **Deploy a change:** commit and `git push`. Pages rebuilds in about a minute. Nothing else.
 - `artifact.html` and `calculator-hosted.html` are git-ignored: they exist only for the
   Claude-hosted preview and must never be deployed.
