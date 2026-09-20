@@ -3,7 +3,42 @@
 Static build of the Fortune Bridge desktop homepage, converted from the Figma design
 on 2026-09-20. No framework, no build step, no dependencies.
 
-## Run it
+## Deployment (GitHub Pages, from 2026-09-20)
+
+- **Repo:** https://github.com/krishsurya31/fortunebridge (public; Pages requires it on a free plan)
+- **Live:** https://krishsurya31.github.io/fortunebridge/ until the domain is attached, then
+  **https://fortunebridge.co.in**
+- **Deploy a change:** commit and `git push`. Pages rebuilds in about a minute. Nothing else.
+- `artifact.html` and `calculator-hosted.html` are git-ignored: they exist only for the
+  Claude-hosted preview and must never be deployed.
+
+### Attaching fortunebridge.co.in (GoDaddy)
+
+The domain currently serves GoDaddy's "Coming Soon" builder page. Steps, in order:
+
+1. **Disconnect the builder.** GoDaddy → Websites + Marketing → the Fortune Bridge site →
+   Settings → Domain → disconnect / remove the domain (otherwise the builder keeps
+   overwriting the DNS records below).
+2. **DNS.** GoDaddy → My Products → Domains → fortunebridge.co.in → DNS. Delete any existing
+   `A` records for `@` and any `CNAME` for `www`, then add:
+
+   | Type | Name | Value | TTL |
+   |---|---|---|---|
+   | A | @ | 185.199.108.153 | 1 hour |
+   | A | @ | 185.199.109.153 | 1 hour |
+   | A | @ | 185.199.110.153 | 1 hour |
+   | A | @ | 185.199.111.153 | 1 hour |
+   | CNAME | www | krishsurya31.github.io | 1 hour |
+
+3. **Tell Claude (or do it yourself):** set the custom domain on the repo to
+   `fortunebridge.co.in` (Settings → Pages → Custom domain) and, once GitHub shows the DNS
+   check passed, tick **Enforce HTTPS**. GitHub issues the certificate automatically; that can
+   take up to an hour after DNS propagates. `www.fortunebridge.co.in` then redirects to the apex.
+
+Do step 3 only AFTER step 2: with a custom domain set, GitHub redirects the github.io URL to
+the domain, so until DNS points here the site would appear broken.
+
+## Run it locally
 
 Open `index.html` in a browser. That's it.
 
