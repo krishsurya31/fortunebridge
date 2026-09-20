@@ -310,12 +310,20 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .outlook-note { margin:14px 0 0; font-size:12px; line-height:17px; color:rgba(255,255,255,.5); }
 .trend-line { fill:none; stroke:var(--gold-300); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 .trend-dot { fill:var(--navy-900); stroke:var(--gold-300); stroke-width:2; }
-.value-chip { position:absolute; }
-.value-chip span {
-  display:inline-block; padding:4px 9px; border-radius:100px;
-  background:var(--gold-500); color:var(--navy-900);
-  font-size:11px; font-weight:700; line-height:14px;
+.value-chip {
+  position:absolute; opacity:0;
+  transform:translate(-50%,-50%) scale(.6);
+  transition:opacity .3s ease, transform .35s cubic-bezier(.34,1.56,.64,1);
 }
+.value-chip.show { opacity:1; transform:translate(-50%,-50%) scale(1); }
+.value-chip span {
+  display:inline-block; padding:3px 9px; border-radius:100px;
+  background:var(--navy-900); color:var(--gold-300);
+  border:2px solid var(--gold-300);
+  font-size:11px; font-weight:700; line-height:14px; white-space:nowrap;
+  box-shadow:0 4px 12px rgba(5,11,24,.45);
+}
+.value-chip i { font-style:normal; }
 .outlook-foot {
   display:flex; align-items:center; gap:14px; margin-top:24px;
   background:rgba(255,255,255,.08); border-radius:14px; padding:16px;

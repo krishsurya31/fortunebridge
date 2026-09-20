@@ -150,12 +150,12 @@
     line.style.strokeDashoffset = reduce ? 0 : len;
     line.style.transition = 'stroke-dashoffset .8s ease-out .75s';
 
-    // value chip position (above final bar)
+    // value chip: sits ON the final data point (an enlarged trend dot), so it reads as the
+    // end of the line and the top of the bar. Floating it above collided with the goal line.
     const chip = document.querySelector('.value-chip');
     const lastTop = tops[tops.length - 1];
     chip.style.left = (lastTop[0] / W * 100) + '%';
     chip.style.top = (lastTop[1] / H * 100) + '%';
-    chip.style.transform = 'translate(-50%,-140%)';
 
     // callout line, derived from the same data as the bars
     const prog = document.querySelector('[data-goal-progress]');
@@ -164,10 +164,12 @@
     function runChart() {
       document.getElementById('chart').classList.add('run');
       if (reduce) { dots.forEach(c => { c.style.opacity = 1; c.style.transform = 'scale(1)'; });
+        chip.classList.add('show');
         document.querySelector('[data-chip]').textContent = FINAL; return; }
       line.style.strokeDashoffset = 0;
       dots.forEach((c, i) => setTimeout(() => {
         c.style.opacity = 1; c.style.transform = 'scale(1)';
+        if (i === dots.length - 1) chip.classList.add('show');
       }, 850 + i * 90));
       // chip count-up as the line lands
       setTimeout(() => {
