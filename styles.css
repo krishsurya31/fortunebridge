@@ -458,7 +458,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .footer-bar { display:flex; justify-content:space-between; align-items:center; }
 .footer-bar .copy { font-size:14px; color:rgba(255,255,255,.5); }
 .footer-bar .links { display:flex; gap:26px; }
-.footer-bar .links a { font-size:14px; color:rgba(255,255,255,.6); }
+.footer-bar .links a, .footer-bar .links span { font-size:14px; color:rgba(255,255,255,.6); }
 .footer-bar .links a:hover { color:var(--gold-300); }
 .footer-legal { margin-top:24px; font-size:14px; line-height:20px; color:rgba(255,255,255,.38); }
 
