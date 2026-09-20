@@ -1,0 +1,138 @@
+/* ============================================================
+   Fortune Bridge — Wealth Calculator page
+   Loaded after styles.css; shares its tokens.
+   ============================================================ */
+:root {
+  /* Chart series: identity colours in fixed order (1 invested, 2 growth). Validated with the
+     dataviz palette script against the panel surface. The brand gold #d4af37 FAILS the
+     dark-surface lightness band as a data mark, so the growth series uses a deeper step.
+     Brand gold still appears as text/accent chrome, never as a bar. */
+  --s-invested:#5b93d1;   /* L 0.63, passes */
+  --s-growth:#b08a1e;     /* lightest gold step inside the dark band (L 0.48–0.67); ΔE 23 vs blue */
+  --cchart-surface:#12264a;
+}
+
+.calc-hero { background:var(--grad-navy); padding:80px 0 160px; text-align:center; }
+.calc-hero .eyebrow { color:var(--gold-300); }
+.calc-hero h1 { margin:0 auto; max-width:760px; font-size:52px; line-height:58px; font-weight:800; letter-spacing:-.02em; color:var(--white); text-wrap:balance; }
+.calc-hero .lead { color:rgba(255,255,255,.75); max-width:680px; }
+
+.calc-section { background:var(--ivory-50); padding-bottom:40px; }
+.calc {
+  margin-top:-110px; position:relative; z-index:2;
+  background:var(--white); border:1px solid var(--line-200); border-radius:24px;
+  box-shadow:0 30px 60px -20px rgba(11,23,48,.28);
+  overflow:hidden;
+}
+.calc-tabs { display:flex; border-bottom:1px solid var(--line-200); }
+.calc-tab {
+  flex:1; padding:18px 20px; font-size:16px; font-weight:600; color:var(--ink-500);
+  border-bottom:3px solid transparent; margin-bottom:-1px;
+  transition:color .2s, border-color .2s, background .2s;
+}
+.calc-tab:hover { color:var(--ink-900); background:var(--ivory-50); }
+.calc-tab.active { color:var(--navy-800); border-bottom-color:var(--gold-500); }
+.calc-tab:focus-visible, .seg-btn:focus-visible, .tile:focus-visible { outline:2px solid var(--gold-600); outline-offset:-2px; }
+
+.calc-body { display:grid; grid-template-columns:380px 1fr; }
+.calc-inputs { padding:34px 32px; border-right:1px solid var(--line-200); background:var(--ivory-50); display:flex; flex-direction:column; gap:28px; }
+.calc-results { padding:34px 36px; min-width:0; }
+
+.field-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:10px; }
+.field-head label, .field-label { font-size:14px; font-weight:600; color:var(--ink-700); }
+.field-head output { font-size:20px; font-weight:700; color:var(--navy-800); font-variant-numeric:tabular-nums; }
+.field input[type=range] { width:100%; accent-color:var(--gold-600); cursor:pointer; margin:4px 0; }
+.field-scale { display:flex; justify-content:space-between; font-size:12px; color:var(--ink-500); margin-top:2px; }
+.field-num { display:flex; align-items:center; gap:6px; margin-top:10px; background:var(--white); border:1px solid var(--line-200); border-radius:10px; padding:0 12px; }
+.field-num .pre { color:var(--ink-500); font-weight:600; }
+.field-num input { flex:1; border:0; padding:11px 0; font:inherit; font-size:15px; font-weight:600; color:var(--ink-900); background:transparent; font-variant-numeric:tabular-nums; min-width:0; }
+.field-num input:focus { outline:none; }
+.field-num:focus-within { border-color:var(--gold-500); box-shadow:0 0 0 3px rgba(212,175,55,.18); }
+
+.seg { display:flex; background:var(--white); border:1px solid var(--line-200); border-radius:10px; padding:4px; gap:4px; }
+.seg-btn { flex:1; padding:10px 8px; border-radius:7px; font-size:14px; font-weight:600; color:var(--ink-500); transition:background .2s, color .2s; }
+.seg-btn.active { background:var(--navy-800); color:var(--white); }
+
+.calc-hint { display:flex; gap:10px; margin:0; font-size:13px; line-height:19px; color:var(--ink-500); }
+.calc-hint .ic { width:18px; height:18px; flex:none; margin-top:1px; color:var(--gold-700); }
+
+.results-title { margin:0 0 18px; font-size:18px; font-weight:600; color:var(--ink-900); text-wrap:balance; }
+.tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.tile {
+  text-align:left; padding:16px 18px; border-radius:14px;
+  background:var(--white); border:1.5px solid var(--line-200);
+  transition:border-color .2s, box-shadow .2s, transform .2s var(--ease);
+}
+.tile:hover { border-color:var(--gold-400); transform:translateY(-2px); }
+.tile.active { border-color:var(--gold-600); box-shadow:0 12px 28px -14px rgba(138,106,18,.45); background:linear-gradient(180deg,#fffdf6,#fff); }
+.tile-head { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.tile-name { font-size:13px; font-weight:700; color:var(--ink-900); }
+.tile-rate { font-size:12px; font-weight:600; color:var(--gold-700); white-space:nowrap; }
+.tile-value { margin-top:10px; font-size:24px; line-height:28px; font-weight:800; letter-spacing:-.01em; color:var(--navy-800); }
+.tile-value small { font-size:12px; font-weight:600; color:var(--ink-500); margin-left:2px; letter-spacing:0; }
+.tile-sub { margin-top:8px; font-size:12px; line-height:17px; color:var(--ink-500); }
+
+/* Chart panel: one committed dark surface, solid (no gradient), so the 2px surface gaps
+   between stacked segments are exact. */
+.cchart { margin-top:18px; background:var(--cchart-surface); border-radius:18px; padding:20px 20px 12px; }
+.cchart-head { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+.cchart-title { margin:0; font-size:13px; font-weight:600; color:rgba(255,255,255,.72); }
+.legend { list-style:none; margin:0; padding:0; display:flex; gap:16px; font-size:12px; color:rgba(255,255,255,.72); }
+.legend li { display:flex; align-items:center; gap:7px; }
+.sw { display:inline-block; width:10px; height:10px; border-radius:3px; }
+.sw-inv { background:var(--s-invested); }
+.sw-gr { background:var(--s-growth); }
+.cchart-plot { position:relative; margin-top:10px; }
+.cchart-plot svg { width:100%; height:auto; display:block; overflow:visible; }
+.gl { stroke:rgba(255,255,255,.08); stroke-width:1; }
+.gl.base { stroke:rgba(255,255,255,.22); }
+.ax { fill:rgba(255,255,255,.5); font-size:10.5px; font-variant-numeric:tabular-nums; }
+.xa.final { fill:rgba(255,255,255,.9); font-weight:600; }
+.endlab { fill:rgba(255,255,255,.92); font-size:12px; font-weight:700; }
+.r-gr { fill:var(--s-growth); }
+.r-inv { fill:var(--s-invested); }
+.r-gap { fill:var(--cchart-surface); }
+.cbar rect { transition:y .45s var(--ease), height .45s var(--ease), x .3s var(--ease), width .3s var(--ease), opacity .2s; }
+.cbar.dim rect { opacity:.45; }
+.cbar.dim .r-gap { opacity:1; }
+.hit { fill:transparent; cursor:crosshair; outline:none; }
+.hit:focus-visible { fill:rgba(255,255,255,.06); }
+.ctip {
+  position:absolute; transform:translate(-50%,-100%); pointer-events:none; z-index:3;
+  background:#fff; color:var(--ink-900); border-radius:10px; padding:10px 12px; min-width:180px;
+  box-shadow:0 12px 30px -10px rgba(5,11,24,.5); font-size:12px; line-height:18px;
+}
+.ctip b { display:block; font-size:12px; color:var(--ink-500); font-weight:600; margin-bottom:4px; }
+.ctip span { display:flex; align-items:center; gap:7px; }
+.ctip span em { font-style:normal; font-weight:700; font-variant-numeric:tabular-nums; margin-left:auto; }
+.ctip .sw { width:10px; height:3px; border-radius:2px; }     /* line keys, not boxes */
+.ctip .tot { border-top:1px solid var(--line-200); margin-top:4px; padding-top:4px; }
+.ctable { margin-top:8px; }
+.ctable summary { cursor:pointer; font-size:12px; font-weight:600; color:rgba(255,255,255,.6); padding:6px 0; list-style:none; }
+.ctable summary::-webkit-details-marker { display:none; }
+.ctable summary::before { content:"+ "; }
+.ctable[open] summary::before { content:"× "; }
+.ctable-scroll { overflow-x:auto; max-height:260px; overflow-y:auto; margin-top:6px; }
+.ctable table { width:100%; border-collapse:collapse; font-size:12px; color:rgba(255,255,255,.82); font-variant-numeric:tabular-nums; }
+.ctable th, .ctable td { text-align:right; padding:6px 8px; border-bottom:1px solid rgba(255,255,255,.08); white-space:nowrap; }
+.ctable th:first-child, .ctable td:first-child { text-align:left; }
+.ctable th { color:rgba(255,255,255,.55); font-weight:600; position:sticky; top:0; background:var(--cchart-surface); }
+
+.calc-disclaimer { margin:18px 0 0; font-size:12px; line-height:18px; color:var(--ink-500); }
+
+.how-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px 40px; margin-top:48px; max-width:1000px; margin-inline:auto; }
+.how h3 { margin:0; font-size:18px; font-weight:600; color:var(--ink-900); }
+.how p { margin:8px 0 0; font-size:16px; line-height:25px; color:var(--ink-700); }
+
+@media (max-width:1200px){
+  .calc-body { grid-template-columns:320px 1fr; }
+  .calc-results { padding:28px 26px; }
+}
+@media (max-width:900px){
+  .calc-hero { padding:64px 0 140px; }
+  .calc-hero h1 { font-size:36px; line-height:42px; }
+  .calc-body { grid-template-columns:1fr; }
+  .calc-inputs { border-right:0; border-bottom:1px solid var(--line-200); }
+  .tiles { grid-template-columns:1fr; }
+  .how-grid { grid-template-columns:1fr; }
+}

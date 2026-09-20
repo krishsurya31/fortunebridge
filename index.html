@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fortune Bridge</title>
+<meta name="description" content="Fortune Bridge, AMFI registered mutual fund distributor in Tirunelveli. Mutual funds, SIF, PMS, AIF, bonds, insurance and loans against mutual funds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body>
+
+<!-- ===== icon sprite ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-trending" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></symbol>
+  <symbol id="i-pie" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9h-9V3z"/><path d="M14.6 3.7A9 9 0 0120.3 9.4h-5.7V3.7z"/></symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18"/><path d="M9 3l3 6 3-6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10.5h18"/><path d="M7 14.5h4"/></symbol>
+  <symbol id="i-bond" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8"/><path d="M8 12.5h8"/><path d="M8 16h5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.2 2.9-5.2 5.5-5.2S14.5 16.8 14.5 20"/><path d="M16 5.2a3.2 3.2 0 010 5.8"/><path d="M20.5 20c0-2.6-1.7-4.4-3.8-4.9"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+  <symbol id="i-badge" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5L7 21l5-2.5L17 21l-1.5-7.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13"/><path d="M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+</svg>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo-gold-header.png" alt="Fortune Bridge"></a>
+    <nav class="nav">
+      <a href="#" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="calculator.html">Wealth Calculator</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary" href="#book" data-book>Book a Consultation</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero section">
+  <div class="hero-stage">
+    <div class="hero-copy">
+      <span class="badge" data-reveal><span class="dot"></span>AMFI REGISTERED MUTUAL FUND DISTRIBUTOR</span>
+      <h1 class="d1" data-reveal>Your Bridge to<br>Generational <span class="accent">Wealth</span>.</h1>
+      <p class="hero-body d2" data-reveal>Mutual funds, SIF, PMS, AIF, bonds, insurance and loans against your mutual funds, all through one AMFI registered distributor. Clear choices, patient guidance, and a plan built around your goals.</p>
+      <div class="trust d3" data-reveal>
+        <div class="trust-item"><span class="trust-circle"><svg class="ic"><use href="#i-compass"/></svg></span><span>Clear, honest<br>guidance</span></div>
+        <div class="trust-item"><span class="trust-circle"><svg class="ic"><use href="#i-shield"/></svg></span><span>Client-first<br>approach</span></div>
+        <div class="trust-item"><span class="trust-circle"><svg class="ic"><use href="#i-badge"/></svg></span><span>AMFI registered<br>distributor</span></div>
+      </div>
+      <div class="hero-cta d4" data-reveal>
+        <a class="btn btn-primary btn-lg" href="#services">Explore Services<svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <img class="hero-advisor" src="assets/advisor-cutout.png" alt="Fortune Bridge">
+
+    <aside class="hero-card d2" data-reveal>
+      <h3>Build. Protect. Grow.</h3>
+      <p>Everything on one plan, through one distributor.</p>
+      <ul class="chips">
+        <li>Mutual Funds</li><li>SIF</li><li>PMS</li><li>AIF</li><li>Bonds</li><li>Insurance</li><li>LAMF</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== APPROACH (was Philosophy) ===== -->
+<section class="philosophy section pad" id="approach">
+  <div class="glow">
+    <div class="orb" style="left:40px;top:240px;width:580px;height:470px;background:radial-gradient(closest-side,rgba(62,123,196,.3),transparent)"></div>
+    <div class="orb" style="left:520px;top:200px;width:660px;height:560px;background:radial-gradient(closest-side,rgba(91,147,209,.22),transparent)"></div>
+    <div class="orb" style="left:960px;top:270px;width:520px;height:470px;background:radial-gradient(closest-side,rgba(46,79,134,.3),transparent)"></div>
+    <div class="orb" style="left:300px;top:430px;width:520px;height:360px;background:radial-gradient(closest-side,rgba(27,58,102,.26),transparent)"></div>
+  </div>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Our Approach</p>
+      <h2 class="h2 d1" data-reveal>Three principles behind every plan</h2>
+      <p class="lead d2" data-reveal>A simple, disciplined way of building wealth for families across India.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar" data-reveal>
+        <div class="pillar-top"><span class="pillar-icon"><svg class="ic"><use href="#i-layers"/></svg></span><span class="pillar-num">01</span></div>
+        <h3>The Right Product Mix</h3>
+        <p>Mutual funds for most goals, with SIF, PMS and AIF where they genuinely fit, and bonds for stability. The mix follows your goal, not a sales target.</p>
+      </article>
+      <article class="pillar d1" data-reveal>
+        <div class="pillar-top"><span class="pillar-icon"><svg class="ic"><use href="#i-users"/></svg></span><span class="pillar-num">02</span></div>
+        <h3>One Relationship</h3>
+        <p>Investments, insurance and liquidity handled together, so every part of your money plan knows about the others.</p>
+      </article>
+      <article class="pillar d2" data-reveal>
+        <div class="pillar-top"><span class="pillar-icon"><svg class="ic"><use href="#i-trending"/></svg></span><span class="pillar-num">03</span></div>
+        <h3>Discipline Over Noise</h3>
+        <p>Regular reviews, rebalancing when it is needed, and no reacting to headlines. Long-term wealth is built by staying the course.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section-white section pad" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>What We Offer</p>
+      <h2 class="h2 d1" data-reveal>Seven ways to put your money to work</h2>
+      <p class="lead d2" data-reveal>Every product on this page is one Fortune Bridge distributes directly. Nothing here is outsourced or notional.</p>
+    </div>
+
+    <div class="svc-group">
+      <p class="group-label" data-reveal>Investments, from the most accessible to the most exclusive</p>
+      <div class="grid-cards cols-4">
+        <article class="card" data-reveal>
+          <span class="card-icon"><svg class="ic"><use href="#i-pie"/></svg></span>
+          <h3>Mutual Funds</h3>
+          <p>Equity, debt and hybrid schemes for every goal and horizon. Start a monthly SIP or invest a lump sum.</p>
+        </article>
+        <article class="card d1" data-reveal>
+          <span class="card-icon"><svg class="ic"><use href="#i-layers"/></svg></span>
+          <h3>SIF</h3>
+          <p>Specialised Investment Funds, the new SEBI category between mutual funds and PMS, with focused and long-short strategies.</p>
+        </article>
+        <article class="card d2" data-reveal>
+          <span class="card-icon"><svg class="ic"><use href="#i-trending"/></svg></span>
+          <h3>PMS</h3>
+          <p>Portfolio Management Services: a professionally run portfolio of direct stocks, held in your own name.</p>
+        </article>
+        <article class="card d3" data-reveal>
+          <span class="card-icon"><svg class="ic"><use href="#i-gem"/></svg></span>
+          <h3>AIF</h3>
+          <p>Alternative Investment Funds across private equity, venture, credit and long-short strategies.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="svc-group">
+      <p class="group-label" data-reveal>Stability, protection and liquidity</p>
+      <div class="grid-cards">
+        <article class="card" data-reveal>
+          <span class="card-icon"><svg class="ic"><use href="#i-bond"/></svg></span>
+          <h3>Bonds</h3>
+          <p>Government securities, corporate bonds and NCDs for steady, predictable income alongside your equity holdings.</p>
+        </article>
+        <article class="card d1" data-reveal>
+          <span class="card-icon"><svg class="ic"><use href="#i-shield"/></svg></span>
+          <h3>Insurance</h3>
+          <p>Term, health and life cover, so a single event never derails the plan. Protection first, then growth.</p>
+        </article>
+        <article class="card d2" data-reveal>
+          <span class="card-icon"><svg class="ic"><use href="#i-card"/></svg></span>
+          <h3>LAMF</h3>
+          <p>Loan Against Mutual Funds: a credit line by pledging your units, so you meet short-term needs without redeeming and without breaking compounding.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GOAL-BASED INVESTING ===== -->
+<section class="goals section-light section pad" id="goals">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" data-reveal>Goal-Based Investing</p>
+      <h2 class="d1" data-reveal>Every rupee, aligned to a purpose</h2>
+      <p class="lead d2" data-reveal>We believe investing should map to real life. Before recommending any product, we anchor your money to the outcomes that matter most, then build a plan to reach them.</p>
+      <ul class="goal-list d3" data-reveal>
+        <li><span class="goal-check"><svg class="ic"><use href="#i-check"/></svg></span>Long-term wealth creation</li>
+        <li><span class="goal-check"><svg class="ic"><use href="#i-check"/></svg></span>Retirement readiness</li>
+        <li><span class="goal-check"><svg class="ic"><use href="#i-check"/></svg></span>Children's education funding</li>
+        <li><span class="goal-check"><svg class="ic"><use href="#i-check"/></svg></span>Tax-efficient investing</li>
+        <li><span class="goal-check"><svg class="ic"><use href="#i-check"/></svg></span>Milestone and wedding funding</li>
+      </ul>
+      <a class="btn btn-primary d4" data-reveal href="calculator.html">Try the Wealth Calculator<svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="outlook d2" data-reveal id="outlook">
+      <div class="outlook-head">
+        <p class="eyebrow">Goal Progress</p>
+        <span class="pill">Illustration</span>
+      </div>
+      <div class="chart" id="chart">
+        <svg id="chart-svg"><!-- built by script.js --></svg>
+        <div class="value-chip"><span>₹<i data-chip>0</i>L</span></div>
+      </div>
+      <div class="outlook-foot">
+        <span class="tick"><svg class="ic"><use href="#i-check"/></svg></span>
+        <div><b>On track for a 2030 goal</b><small data-goal-progress>Reviewed quarterly</small></div>
+      </div>
+      <p class="outlook-note">Example plan showing how a goal is funded over time. Not a forecast or a promise of returns.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS (sample content until real quotes arrive) ===== -->
+<section class="section-white section pad">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Client Voices</p>
+      <h2 class="h2 d1" data-reveal>Trusted by families who value discretion</h2>
+      <p class="lead d2" data-reveal>Words from clients who have agreed to share their experience.</p>
+    </div>
+    <div class="tcards">
+      <article class="tcard" data-reveal>
+        <blockquote>I spend most of the year travelling for work, so I needed someone who would handle the details and keep me informed without my chasing them. Fortune Bridge set up my SIPs, explained every choice in plain terms, and reviews the plan with me each quarter.</blockquote>
+        <div class="tperson"><span class="avatar">S</span><div><b>Surya</b><span>Supply Chain Consultant</span></div></div>
+      </article>
+      <article class="tcard d1" data-reveal>
+        <blockquote>What I valued most was the process. Clear goals first, then the products that fit them, with reasons I could follow. My children's education fund and my retirement plan finally sit in one place, on a schedule I can actually keep.</blockquote>
+        <div class="tperson"><span class="avatar">J</span><div><b>Jahnavi</b><span>Technology Project Manager</span></div></div>
+      </article>
+      <article class="tcard d2" data-reveal>
+        <blockquote>I ask a lot of questions about assumptions, and Fortune Bridge answered every one with numbers rather than promises. The plan shows exactly what I am investing, why, and what it is meant to do. That transparency is why I stayed.</blockquote>
+        <div class="tperson"><span class="avatar">R</span><div><b>Rishi</b><span>Data Scientist</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="section-light section pad">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>How It Works</p>
+      <h2 class="h2 d1" data-reveal>A clear path to your outcomes</h2>
+      <p class="lead d2" data-reveal>A structured, four-step engagement that turns your aspirations into a plan, and the plan into progress.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-reveal>
+        <div class="step-top"><span class="step-num">01</span><span class="step-line"></span></div>
+        <h3>Discover</h3><p>A thorough understanding of your goals, risk appetite and time horizon.</p>
+      </div>
+      <div class="step d1" data-reveal>
+        <div class="step-top"><span class="step-num">02</span><span class="step-line"></span></div>
+        <h3>Design</h3><p>A plan built around your priorities, using only the products that fit.</p>
+      </div>
+      <div class="step d2" data-reveal>
+        <div class="step-top"><span class="step-num">03</span><span class="step-line"></span></div>
+        <h3>Deploy</h3><p>Paperwork, KYC and execution handled end to end, with you informed at every step.</p>
+      </div>
+      <div class="step d3" data-reveal>
+        <div class="step-top"><span class="step-num">04</span></div>
+        <h3>Review</h3><p>Regular reviews and rebalancing when needed, to keep you firmly on track.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta section pad" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Get Started</p>
+    <h2 class="d1" data-reveal>Begin your wealth journey today</h2>
+    <p class="d2" data-reveal>Call or write to Fortune Bridge and start building a plan around your exact goals, with people who treat your money as carefully as their own.</p>
+    <div class="cta-btns d3" data-reveal>
+      <a class="btn btn-primary btn-lg" href="#book" data-book>Book a consultation<svg class="ic"><use href="#i-arrow"/></svg></a>
+      <a class="btn-ghost" href="tel:+918682872694">Call +91 86828 72694</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-gold-footer-square.png" alt="Fortune Bridge">
+        <p>Mutual funds, SIF, PMS, AIF, bonds, insurance and loans against mutual funds for families across India. Connecting today, building tomorrow.</p>
+        <div class="footer-contact">
+          <a class="phone" href="tel:+918682872694">+91 86828 72694</a>
+          <a class="mail" href="mailto:vignesh@fortunebridge.co.in">vignesh@fortunebridge.co.in</a>
+          <a class="mail" href="https://fortunebridge.co.in">fortunebridge.co.in</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul><li><a href="#">Home</a></li><li><a href="#approach">Our Approach</a></li><li><a href="#services">Services</a></li><li><a href="calculator.html">Wealth Calculator</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul><li><a href="#services">Mutual Funds</a></li><li><a href="#services">SIF</a></li><li><a href="#services">PMS</a></li><li><a href="#services">AIF</a></li><li><a href="#services">Bonds</a></li><li><a href="#services">Insurance</a></li><li><a href="#services">LAMF</a></li></ul>
+      </div>
+      <div class="footer-office">
+        <h4>Office</h4>
+        <p>5/1 New Colony, Melakkarai,<br>Thatchanallur Bye Pass,<br>Tirunelveli, Tamil Nadu</p>
+      </div>
+    </div>
+    <div class="footer-rule"></div>
+    <div class="footer-bar">
+      <span class="copy">© 2026 Fortune Bridge. AMFI Registered Mutual Fund Distributor. All rights reserved.</span>
+      <div class="links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Disclosures</a></div>
+    </div>
+    <p class="footer-legal">AMFI ARN: 292905 (registered to Vignesh Parthiban)&nbsp;&nbsp;·&nbsp;&nbsp;Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing. Past performance is not indicative of future returns.</p>
+  </div>
+</footer>
+
+<script src="script.js?v=7"></script>
+</body>
+</html>
